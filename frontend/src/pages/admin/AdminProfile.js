@@ -7,6 +7,15 @@
 // import { Button, Collapse } from '@mui/material';
 
 import { useSelector } from 'react-redux';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Container,
+  Box,
+  Avatar,
+  Divider,
+} from "@mui/material";
 
 const AdminProfile = () => {
     // const [showTab, setShowTab] = useState(false);
@@ -45,13 +54,80 @@ const AdminProfile = () => {
     // }
 
     return (
-        <div>
+        <div> 
+            
+          {/*   <center> */}
+          {/* <Card sx={{ maxWidth: 345 }}>
+            <b>
             Name: {currentUser.name}
-            <br />
+            <hr />
             Email: {currentUser.email}
-            <br />
+            <hr />
             School: {currentUser.schoolName}
-            <br />
+            <hr />
+            </b>
+            </Card> */}
+
+<Container maxWidth="sm">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "80vh",
+        }}
+      >
+        <Card
+          sx={{
+            width: "100%",
+            maxWidth: 400,
+            boxShadow: 6,
+            borderRadius: 4,
+            p: 3,
+            textAlign: "center",
+            background: "linear-gradient(145deg, #ffffff, #f0f0f0)",
+          }}
+        >
+          {/* Profile Avatar */}
+          <Avatar
+            alt={currentUser.name}
+            sx={{
+              width: 80,
+              height: 80,
+              mx: "auto",
+              mb: 2,
+              bgcolor: "#1976d2",
+              fontSize: 28,
+            }}
+          >
+            {currentUser.name?.charAt(0).toUpperCase()}
+          </Avatar>
+
+          {/* Heading */}
+          <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>
+            Admin Profile
+          </Typography>
+
+          <Divider sx={{ my: 2 }} />
+
+          {/* Details */}
+          <Box sx={{ textAlign: "left" }}>
+            <Typography variant="body1" sx={{ mb: 1 }}>
+              <strong>Name:</strong> {currentUser.name}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>
+              <strong>Email:</strong> {currentUser.email}
+            </Typography>
+            <Typography variant="body1">
+              <strong>School:</strong> {currentUser.schoolName}
+            </Typography>
+          </Box>
+        </Card>
+      </Box>
+    </Container>
+
+
+            {/*  </center> */}
             {/* <Button variant="contained" color="error" onClick={deleteHandler}>Delete</Button> */}
             {/* <Button variant="contained" sx={styles.showButton}
                 onClick={() => setShowTab(!showTab)}>
